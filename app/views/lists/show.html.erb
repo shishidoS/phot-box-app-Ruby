@@ -1,0 +1,14 @@
+
+<h2>タイトル</h2>
+<p><%= @list.title %></p>
+
+<h2>本文</h2>
+<p><%= @list.body %></p>
+
+<h2>画像</h2>
+<%= image_tag @list.image, size: "300x300" %>
+
+<%= link_to "編集", edit_list_path(@list.id) %>
+<%= form_with model: @list, method: :delete, data: { confirm: "本当に削除しますか？" } do |form| %>
+  <%= form.submit "削除", class: "btn btn-danger" %>
+<% end %>
